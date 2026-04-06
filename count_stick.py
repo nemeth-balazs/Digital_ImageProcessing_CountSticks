@@ -30,8 +30,13 @@ cv2.imshow('03 - source image - with noise - in gray', img_gray)
 cv2.waitKey(0)
 
 # GaussianBlur
-img_filtered = cv2.GaussianBlur(img_gray, (21, 21), sigmaX=3.0, sigmaY=3.0)
-cv2.imshow('04 - noise image in gray - GaussianBlur', img_filtered)
+img_filtered = cv2.GaussianBlur(img_gray, (9, 9), sigmaX=3.0, sigmaY=3.0)
+cv2.imshow('04a - noise image in gray - GaussianBlur', img_filtered)
+cv2.waitKey(0)
+
+# medianBlur - remove salt pepper noise
+img_filtered = cv2.medianBlur(img_filtered, ksize=15)
+cv2.imshow('04b - noise image in gray - medianBlur', img_filtered)
 cv2.waitKey(0)
 
 # Otsu módszerrel történő globális küszöbölés

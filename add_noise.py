@@ -74,15 +74,15 @@ def get_noise_level():
 
     while True:
         try:
-            user_input = input(f"Add meg a zaj szintet (1-10) [default: {default_value}]: ")
+            user_input = input(f"Add meg a zaj szintet (1-5) [default: {default_value}]: ")
             if user_input.strip() == "":
                 return default_value
 
             value = int(user_input)
-            if 1 <= value <= 10:
+            if 1 <= value <= 5:
                 return value
             else:
-                print("Hiba: 1 és 10 közötti számot adj meg!")
+                print("Hiba: 1 és 5 közötti számot adj meg!")
 
         except ValueError:
             print("Hiba: számot kell megadni!")

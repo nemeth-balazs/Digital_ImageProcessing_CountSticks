@@ -4,8 +4,9 @@ import numpy as np
 def show_sticks_group(img_otsu, img_thin):
     # Connected components a skeletonon
     num_labels, labels = cv2.connectedComponents(img_thin)
-    print("Komponensek száma:", num_labels - 1)  # 0 a háttér
+    print("Kontúrok száma:", num_labels)
 
+    component = np.zeros_like(img_thin)
     for label in range(1, num_labels):  # 0 = háttér
 
         # alap overlay minden iterációban újra
@@ -15,7 +16,7 @@ def show_sticks_group(img_otsu, img_thin):
         kernel = np.ones((5, 5), np.uint8)
 
         # piros színezés
-        component = np.zeros_like(img_thin)
+        # component = np.zeros_like(img_thin)
         component[labels == label] = 255
 
         # vastag vonal kirajzolása
